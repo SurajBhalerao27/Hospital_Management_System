@@ -16,14 +16,14 @@ public class Patient {
 		this.scanner = scanner;
 	}
 
-// add 
+// add
 	public void addPatient() {
 		System.out.println("Enter patient name: ");
 		String name = scanner.next();
-		
+
 		System.out.println("Enter patient age: ");
 		int age = scanner.nextInt();
-		
+
 		System.out.println("Enter patient gender: ");
 		String gender = scanner.next();
 
@@ -35,16 +35,17 @@ public class Patient {
 			statement.setString(3, gender);
 
 			int executeUpdate = statement.executeUpdate();
-			if (executeUpdate > 0)
+			if (executeUpdate > 0) {
 				System.out.println("Patient data added successfully !!!");
-			else
+			} else {
 				System.err.println("Error");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-// view patient 
+// view patient
 	public void viewPatient() {
 		String query = "SELECT * FROM PATIENTS";
 		try {
@@ -68,16 +69,17 @@ public class Patient {
 		}
 	}
 
-// get patient 
+// get patient
 	public boolean getPatientById(int patientId) {
 		String query = "SELECT * FROM PATIENTS WHERE ID=?";
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			ResultSet executeQuery = statement.executeQuery();
-			if (executeQuery.next())
+			if (executeQuery.next()) {
 				return true;
-			else
+			} else {
 				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

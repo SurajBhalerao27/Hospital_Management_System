@@ -13,7 +13,7 @@ public class Doctor {
 		this.connection = connection;
 	}
 
-// view patient 
+// view patient
 	public void viewDoctor() {
 		String query = "SELECT * FROM DOCTORS";
 		try {
@@ -36,16 +36,17 @@ public class Doctor {
 		}
 	}
 
-// get patient 
+// get patient
 	public boolean getPatientById(int doctorId) {
 		String query = "SELECT * FROM PATIENTS WHERE ID=?";
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			ResultSet executeQuery = statement.executeQuery();
-			if (executeQuery.next())
+			if (executeQuery.next()) {
 				return true;
-			else
+			} else {
 				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -25,10 +25,11 @@ public class Appointment {
 					statement.setString(3, date);
 
 					int executeUpdate = statement.executeUpdate();
-					if (executeUpdate > 0)
+					if (executeUpdate > 0) {
 						System.out.println("Appointment Booked");
-					else
+					} else {
 						System.err.println("Failed to book");
+					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -49,10 +50,11 @@ public class Appointment {
 			ResultSet executeQuery = statement.executeQuery();
 			if (executeQuery.next()) {
 				int count = executeQuery.getInt(1);
-				if (count == 0)
+				if (count == 0) {
 					return true;
-				else
+				} else {
 					return false;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
